@@ -23,6 +23,38 @@ Design
 
 Development
 --------
+1. Script to install the app
+
+The following script creates the app folder and inside it creates two more folders
+````.sh
+#!/bin/bash
+
+#This file creates the folder structure for the 
+#minimal Car Rental app
+
+echo "Starting the installation"
+echo "Enter the path where you want to install. Press Enter"
+
+read path
+
+#moving to the desired location
+cd $path
+echo "moving to $path"
+echo $PWD
+
+if ( "$path" != "$PWD" ); then
+    echo "Error creating folder structure"
+    exit
+fi
+
+#Create App folder
+mkdir RentalCarApp
+cd RentalCarApp
+mkdir db
+mkdir scripts
+
+echo "Structure created successfully"
+````
 
 Evaluation
 -----------
