@@ -15,8 +15,29 @@ Contents
 Planning
 ----------
 
-**Defining the problem (Topic 1.1.1)**
-In this project, we are trying to create a new system for a car rental shop in which they can manage the users' data more easily and sufficiently. They wanted to purchase a computer program collecting basic information about the distance driven for each car, and also other data. The want the program to be a simple and transparent based proram, that contains easy commands that allow to create a car, or record a trip; also it should include a command to see total statistics of the data. In that way, without having solid knowledge of computing, the owner can still use the program sufficiently. Lastly, there should be a backup system so if the user somehow lost the data, or the computer 's drive is accidentally wiped, we can still have it afterwards.
+### Defining the problem (Topic 1.1.1)
+Mr. A, an owner of very big car rental shop downtown has had some problems with data. He opened as a very small shop with only him and his wife working in the factory, but as there are more people knowing about the shop, it gained a significant amount of customers. His wife is taking care of manually keeping track of the customer car data, but as there is a huge amount of people, making very hard to do it manually
+
+
+
+
+
+### Solution proposed
+In this project, we are trying to create a new system for a car rental shop in which they can manage the users' data more easily and sufficiently. I decided that choosing a bash program would be the best solution for Mrs.vx because of the complexity of the problem and also the simplicity of the program. They wanted to purchase a computer program collecting basic information about the distance driven for each car, and also other data. The want the program to be a simple and transparent based proram, that contains easy commands that allow to create a car, or record a trip; also it should include a command to see total statistics of the data. In that way, without having solid knowledge of computing, the owner can still use the program sufficiently. Lastly, there should be a backup system so if the user somehow lost the data, or the computer 's drive is accidentally wiped, we can still have it afterwards.
+
+
+### Success Criteria
+
+These are measurable outcomes
+1. A car can be created and stored in the database
+1. A car information can be edited
+1. A car can be deleted from the database
+1. The installation is ***simple-> one step process*
+1. A summary (total/average distance traveled) can be generated for a particular car
+1. Trips can be recorded and stored for an existing car
+1. A basic database system is implemented
+1. A basic backup functionality is available
+
 
 Design
 ---------
