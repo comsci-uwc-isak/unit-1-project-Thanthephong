@@ -99,15 +99,17 @@ cd ../
 This is necessary because the "create.sh" resides in the in folder whereas the test file is inside the /tests folders.
 
 For step 3, we have to check if the information line of the car is actually inside Maincarfile.txt . Because the line we just added is the last line of the file, we have to use the command 
-  "lastline = $( tail -n 1 maincarfile.txt)
+  ````.sh
+  lastline = $( tail -n 1 maincarfile.txt)
   if [ "TXM381 nissan red 9" == "$lastline" ]; then ( HAVE TO USE QUOTATION MARK ) 
 	  echo "Test one: Record was entered correctly: Passed"
   else	
 	  echo "Test two:failed" 
-  fi"
+  fi
+  ````
   
  **Summary** 
-  w
+We used the white box testing for testing our create car file
 
   
 
