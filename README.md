@@ -76,9 +76,43 @@ mkdir scripts
 
 echo "Structure created successfully"
 ````
+### 2. Backup
+
+1) Make a folder called Backup
+2) Locate the CarRentalApp folder ( Desktop )
+3) Move directory ( cd )  to desktop
+4) Copy that folder and paste it to the Backup folder
+5) Print out backed up successfully command
+
 
 Evaluation
 -----------
+### Test 1:
+First run of the program we had one issue: the test file needed to move to the main folder
+Also the create program did not store the license file inside the Database folder. Changing the line "echo " " > $license.txt" to "echo " " > db/$license.txt" solved this issue.
+
+Second run of the program we had one issue: the test file needed to move to the main folder
+````.sh
+cd ../
+````
+
+This is necessary because the "create.sh" resides in the in folder whereas the test file is inside the /tests folders.
+
+For step 3, we have to check if the information line of the car is actually inside Maincarfile.txt . Because the line we just added is the last line of the file, we have to use the command 
+  "lastline = $( tail -n 1 maincarfile.txt)
+  if [ "TXM381 nissan red 9" == "$lastline" ]; then ( HAVE TO USE QUOTATION MARK ) 
+	  echo "Test one: Record was entered correctly: Passed"
+  else	
+	  echo "Test two:failed" 
+  fi"
+  
+ **Summary** 
+  w
+
+  
+
+ 
+
 
 
 
