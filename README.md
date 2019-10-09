@@ -76,13 +76,45 @@ mkdir scripts
 
 echo "Structure created successfully"
 ````
-### 2. Backup
+2. Backup
+ 1) Make a folder called Backup
+ 2) Locate the CarRentalApp folder ( Desktop )
+ 3) Move directory ( cd )  to desktop
+ 4) Copy that folder and paste it to the Backup folder
+ 5) Print out backed up successfully command
 
-1) Make a folder called Backup
-2) Locate the CarRentalApp folder ( Desktop )
-3) Move directory ( cd )  to desktop
-4) Copy that folder and paste it to the Backup folder
-5) Print out backed up successfully command
+3. Script for summary of one car
+````.sh
+#!/bin/bash
+# This script check the summary of a particular car
+
+cd ~/Desktop/CarRentalApp/db
+
+s=0
+# checks number of arguments
+if [ $# -ne 1 ]; then
+  echo "Enter a license plate"
+  exit
+fi
+
+# checks if a car exist
+ if [ ! -f ~/Desktop/CarRentalApp/db/$1.txt ]; then
+   echo " File doesn't exist"
+    exit
+  fi
+# adding the kilometers
+  while read line
+      do
+         for word in $line
+         do
+               ((s=s+word))
+                break
+        done
+      done < $1.txt
+
+    cd ../scripts
+    bash frame.sh "Total age of $1: $s km"
+````
 
 
 Evaluation
