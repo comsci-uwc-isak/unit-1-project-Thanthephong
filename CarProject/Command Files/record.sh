@@ -7,6 +7,7 @@ elif [ ! -f "$1.txt" ]; then
 	echo "File not found!"
 	exit
 else 
-echo "File exists"
+echo "$1 $2 $3 $4" >> $1.txt
+echo "Text inserted "
 fi
 

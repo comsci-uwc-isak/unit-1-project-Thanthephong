@@ -1,23 +1,39 @@
 #!/bin/bash
+# This script check the summary of a particular car
+
 cd ~/Desktop/CarRentalApp/db
+
 s=0
-while read LINE 
-do
-    Y=0
-    for WORD in $LINE
-    do 
-        if [ $Y -eq 0 ];
-        then
-            text=$(head -2 $WORD.txt)
-            arr=($text)
-            echo -n ${arr[0]}" "
-            echo ${arr[1]}
-            (( s=s+arr[1] ))
-        fi
-        Y=$((Y+1))
-    done
-done < Maincarfile.txt
-echo "Total: $s"
+# checks number of arguments
+if [ $# -ne 1 ]; then
+  echo "Enter a license plate"
+  exit
+fi
+
+# checks if a car exist
+ if [ ! -f ~/Desktop/CarRentalApp/db/$1.txt ]; then
+   echo " File doesn't exist"
+    exit
+  fi
+# adding the kilometers
+  while read line
+      do
+         for word in $line
+         do
+               ((s=s+word))
+                break
+        done
+      done < $1.txt
+
+    cd ../scripts
+    bash frame.sh "Total age of $1: $s km"
+
+
+
+
+
+
+
 
 
 
