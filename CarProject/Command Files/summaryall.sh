@@ -1,4 +1,5 @@
 #!/bin/bash
+# This program gives the total distance traveled of all the cars in the db folder
 cd ~/Desktop/CarRentalApp/db
 s=0
 while read LINE 

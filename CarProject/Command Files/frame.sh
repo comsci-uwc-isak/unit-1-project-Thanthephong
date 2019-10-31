@@ -1,8 +1,8 @@
 #!/bin/bash
+# This program creates a frame around a phrase/word
+
 
 word=$1
-
-
 (( num = 50 - ${#word} / 2))
 
 

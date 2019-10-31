@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# This program uninstall the CarRentalApp
 echo "Do you want to delete the Rental Car App folder?"
 read ans
 

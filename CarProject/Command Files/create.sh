@@ -1,4 +1,5 @@
 #!/bin/bash
+# This program creates a new car file for the user
 if  [ $# -ne 4 ]; then
     echo "Wrong input"
     exit

@@ -14,7 +14,7 @@ maker=$2
 model=$3
 pp=$4
 
-cd ../Database
+cd ../db
 
 if [ ! -f "$license.txt" ]; then
   echo "File not found!"
@@ -25,5 +25,5 @@ sed -i '' "/^$license/d" maincarfile.txt
 #add the new information
 echo "$license $maker $model $pp" >> maincarfile.txt
 cd ../scripts
-bash frame2 "Car edited successfully"
+bash frame.sh "Car edited successfully"
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+# This program deletes the information of a car chosen by the user
 cd ~/Desktop/CarRentalApp/db
 if [ $# -eq 1 ]; then
   if [ -f "$1.txt" ]; then

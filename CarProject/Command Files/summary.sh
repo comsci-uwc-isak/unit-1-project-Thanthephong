@@ -2,7 +2,7 @@
 # This script check the summary of a particular car
 
 cd ~/Desktop/CarRentalApp/db
-
+# This program gives the summary ( total distance travelled ) of a car chosen by the user
 s=0
 # checks number of arguments
 if [ $# -ne 1 ]; then
@@ -21,6 +21,7 @@ fi
          for word in $line
          do
                ((s=s+word))
+               echo "one"
                 break
         done
       done < $1.txt
