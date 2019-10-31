@@ -408,10 +408,11 @@ bash create.sh PX680 Audi Red 5
 .SH AUTHOR
 Tom Than
 ````
+### 12. Test program
+I made 3 test program for 3 program in the scripts, more can be made but I think manualy testing it will help easier to find the mistakes in the program and debugging will be easier.
 
-Evaluation
------------
-### Test 1:
+**Test 1:** ( Test for create.sh ) 
+
 First run of the program we had one issue: the test file needed to move to the main folder
 Also the create program did not store the license file inside the Database folder. Changing the line "echo " " > $license.txt" to "echo " " > db/$license.txt" solved this issue.
 
@@ -432,8 +433,53 @@ For step 3, we have to check if the information line of the car is actually insi
   fi
   ````
   
- **Summary** 
-We used the white box testing for testing our create car file
+  **Test 2:** ( Test for install.sh ) 
+  
+````.sh 
+#!/bin/bash
+cd ../scripts
+bash install.sh
+
+
+if [ -d ~/Desktop/CarRentalApp/scripts ] && [ -d ~/Desktop/CarRentalApp/db ] && [ -d ~/Desktop/CarRentalApp/test ]; then
+    echo "The files exists : passed"
+else
+    echo "The files does not exist : test failed"
+fi
+````
+
+  **Test 3:** ( Test for delete ) 
+````.sh
+#!/bin/bash
+
+cd ~/Desktop/CarRentalApp/scripts
+bash create.sh HP950 bmw silver 7
+bash delete.sh HP950
+cd ~/Desktop/CarRentalApp/db
+
+while read LINE
+do
+
+    y=0
+    for word in $LINE 
+    do
+        if [ $y -eq 0 ]; then
+            if [ "$word" == "HP950" ]; then
+                echo " Test failed"
+                exit
+            fi
+        ((y=y+1))
+        fi
+    done
+done < Maincarfile.txt
+if [ ! -f ~/Desktop/CarRentalApp/db/HP950.txt ]; then
+    echo "Passed"
+fi
+````
+
+  
+ Evaluation
+-----------
 
   
 
