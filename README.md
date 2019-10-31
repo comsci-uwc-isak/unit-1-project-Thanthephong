@@ -38,9 +38,10 @@ These are measurable outcomes
 1. A basic database system is implemented
 1. A basic backup functionality is available
 
-
 Design
 ---------
+### Overall sketch of the system:
+
 
 Development
 --------
