@@ -41,7 +41,9 @@ These are measurable outcomes
 Design
 ---------
 ### Overall sketch of the system:
-![Screen Shot 2019-10-31 at 9.21.39 PM.png](Screen Shot 2019-10-31 at 9.21.39 PM.png)
+![Outline](Outline.png)
+System diagram explanation: all the user need to do is installing the the program and start running it. All the data of the cars and the trips are entered by the user and that is the input. Using the program in the scripts folder, the computer will process the data and show the output to the user through terminal. There will also be a backup system and the user can choose where to put the backup file, for problems like data loss.
+
 
 
 Development
