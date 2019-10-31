@@ -98,7 +98,7 @@ bash frame.sh "text inserted"
 fi
 ````
 The only difficulty I encountered was how to add lines to a text file without deleting the lines that are already in it, but I simply found the solution that we can use "echo >> " instead of "echo > " ( which will rewrite the whole file )
-3. Edit 
+### 3. Edit
 Steps:
 1) Check if the user enter enough arguments
 2) Check if the car we want to edit exists
@@ -135,6 +135,126 @@ cd ../scripts
 bash frame.sh "Car edited successfully"
 ````
 In this program, there is a very hard command called sed -i. It looks very complicated but it is very helpful, it helps to locate the line with containing the word that you need to find. I finds this confusing at first because I don't know what the word in that command means, but then I did research only and finally know.
+
+### 4. Record
+Steps:
+1) Move to the database folder
+2) Check if the number of arguments is 4
+3) Check if the car exists
+4) Add the distance traveled, date in, date out in the argument to the "license".txt file
+````.sh
+#!/bin/bash
+# This program records the information of a chosen car by the user
+cd ~/Desktop/CarRentalApp/db
+if [ $# -ne 4 ]; then
+	echo "Wrong input"
+	exit
+elif [ ! -f "$1.txt" ]; then
+	echo "File not found!"
+	exit
+else 
+echo "$2 $3 $4" >> $1.txt
+cd ../scripts
+bash frame.sh "text inserted"
+fi
+````
+I encountered no problem writing this program. The only reminder is that to again use echo >>. This is because the user wants to enter multiple data to a car ( different trips for a car ), thats why instead of rewriting the whole file, we have to keep adding in new lines.
+
+### 5. Summary
+Steps:
+1) Check if the number of arguments is 1
+2) Check if the car exists
+3) Read the file, while adding all the kilometeres traveled in each line together
+4) Print out the terminal the total distance traveled of that car
+````.sh
+#!/bin/bash
+# This script check the summary of a particular car
+
+cd ~/Desktop/CarRentalApp/db
+# This program gives the summary ( total distance travelled ) of a car chosen by the user
+s=0
+# checks number of arguments
+if [ $# -ne 1 ]; then
+  echo "Enter a license plate"
+  exit
+fi
+
+# checks if a car exist
+ if [ ! -f ~/Desktop/CarRentalApp/db/$1.txt ]; then
+   echo " File doesn't exist"
+    exit
+  fi
+# adding the kilometers
+  while read line
+      do
+         for word in $line
+         do
+               ((s=s+word))
+                break
+        done
+      done < $1.txt
+
+    cd ../scripts
+    bash frame.sh "Total age of $1: $s km"
+````
+By creating this program, I truly understood more about how to read a text file. It is quite easy for me to find a way to only add the distance of each line and not date in, date out.
+
+### 6. Summarize all
+Steps
+1) Read the maincarfile.txt to find all of the car names, so that we can know all the license.txt files
+2) Redo what we did in the summarize.sh file
+3) Print out the name of the plate, and all the trips of that car to the user ( do that to every car ) 
+4) Print out the sum of the distance traveled
+````.sh
+#!/bin/bash
+# This program gives the total distance traveled of all the cars in the db folder
+cd ~/Desktop/CarRentalApp/db
+s=0
+while read LINE 
+do
+  for WORD in $LINE
+    do
+      echo "Distance traveled of $WORD: "
+      while read line
+      do
+         for word1 in $line
+         do
+                echo -n "$word1 "
+               ((s=s+word1))
+                break
+        done
+      done < $WORD.txt
+      echo
+      break
+    done
+done < Maincarfile.txt
+echo "Total: $s km"
+````
+In this program, we have to use 4 loops looping at the same time. So if there is a huge amount of data, the computer might not be able to handle it very fast. We should remember to not put s=0 inside of any loop because that will reset the value of s to 0 when we are looping.
+
+### 7. Delete
+Steps:
+1) Check if the file exists
+2) Check if the number of argument is 1
+3) Delete the license.txt file in db
+4) Delete the line containing that license plate in maincarfile.txt
+````.sh
+#!/bin/bash
+# This program deletes the information of a car chosen by the user
+cd ~/Desktop/CarRentalApp/db
+if [ $# -eq 1 ]; then
+  if [ -f "$1.txt" ]; then
+    rm "$1".txt
+    echo "`sed  /$1/d  Maincarfile.txt`" > Maincarfile.txt
+    bash ../scripts/frame.sh "File deleted successfully"
+  else echo "File does not exist"
+  fi
+else echo "wrong argument"
+fi
+````
+We have to use the sed command again to locate the line containing the word. I have researched this online as I don't know how to delete a line in bash, other than that, the program works just like the other programs.
+
+### 8. Backup
 
 
 Evaluation
