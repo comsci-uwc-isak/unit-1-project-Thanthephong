@@ -10,7 +10,7 @@ Contents
   1. [Planning](#planning)
   1. [Design](#design)
   1. [Development](#development)
-  1. [Evalution](#evaluation)
+  1. [Evaluation](#evaluation)
 
 Planning
 ----------
@@ -349,6 +349,66 @@ do
 done
 ````
 This is probably the hardest program of the whole system. Because in order to make a frame around the word, I had to use many different for loops for different lines. The hardest part is to place the word/prase in the middle of the frame. It has to invole the number of letters inside the words, and I had to perform some calculations, but I was able to sort it out in the end. The main purpose of this program is that when you run the program and you want to tell the user something, you can use this program and write the prase in the frame so that it is more appealing to the user.
+
+### 11. Man pages
+
+Install
+````.sh
+.TH man 6 "31 Oct 2019" "1.0" "Install man page"
+.SH NAME
+install \- install CarRentalApp
+.SH SYNOPSIS
+bash install.sh
+.SH DESCRIPTION
+install is a script that installs CarRentalApp (Creates the main folder CarRental App and the sub folders db, scripts, test)
+.SH EXAMPLES
+bash install.sh
+.SH AUTHOR
+Tom Than
+````
+Uninstall
+````.sh
+.TH man 6 "31 Oct 2019" "1.0" "Uninstall man page"
+.SH NAME
+uninstall \- uninstall CarRentalApp
+.SH SYNOPSIS
+bash uninstall.sh
+.SH DESCRIPTION
+uninstall is a script that uninstalls CarRentalApp (deletes all files inside of the folder)
+.SH EXAMPLES
+bash uninstall.sh
+.SH AUTHOR
+Tom Than
+````
+Summary
+````.sh
+.TH man 6 "31 Oct 2019" "1.0" "Summary man page"
+.SH NAME
+summary \- calculate the total distance traveled
+.SH SYNOPSIS
+bash summary.sh
+.SH DESCRIPTION
+summary is a script that calculate the total distance traveled of a car
+.SH EXAMPLES
+bash summary.sh LOP90
+.SH AUTHOR
+Tom Than
+````
+Create
+````.sh
+.TH man 6 "31 Oct 2019" "1.0" "Create man page"
+.SH NAME
+create \- create a car
+.SH SYNOPSIS
+bash create.sh [license] [model] [color] [number of seats]
+.SH DESCRIPTION
+create is a script that creates a new license.txt file and add the car to maincarfile.txt
+.SH EXAMPLES
+bash create.sh PX680 Audi Red 5
+.SH AUTHOR
+Tom Than
+````
+
 Evaluation
 -----------
 ### Test 1:
