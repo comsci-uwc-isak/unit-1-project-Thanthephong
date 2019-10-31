@@ -255,8 +255,100 @@ fi
 We have to use the sed command again to locate the line containing the word. I have researched this online as I don't know how to delete a line in bash, other than that, the program works just like the other programs.
 
 ### 8. Backup
+Steps:
+1) Check if the number of argument is 1
+2) Copy and past the CarRentalApp folder to a path that is entered by the user
+````.sh
+#!/bin/bash
+# This program creates a backup file for the CarRentalApp folder
+
+location=$1
+if [[ $# -ne 1 ]]; then
+        echo "There was an error."
+        exit
+else
+        cp -a ~/Desktop/CarRentalApp $location
+fi
+bash frame.sh "Files backed up successfully"
+````
+For this program, at first I have a lot of trouble on how to make the user enter their own path, because somehow there are some problem with the cd command. So instead of using cd, I just put the path in the copy command and the problem is solved.
+
+### 9. Uninstall
+Steps:
+1) Move to Desktop
+2) Ask again if the user really want to delete the folder
+3) If yes, delete the folder with everything inside of it
+4) If no, print Not deleting the files to the terminal, and exit the program
+````.sh
+#!/bin/bash
+# This program uninstall the CarRentalApp
+echo "Do you want to delete the Car Rental App folder?"
+read ans
+
+if [ $ans == "yes" ]; then
+cd ~/Desktop
+rm -r CarRentalApp
+
+else 
+	echo" Not deleting the files"
+	exit
+fi
+````
+The program works very simply. The only thing that we have to use rm -r instead of rm. This is because you want to delete not only the folder itself but also everything that it contains, that is why we use -r.
+
+### 10. Frame
+Steps:
+1) The user will input a word / phrase
+2) Print out * around the word to make a nice looking frame
+3) Print it out to the terminal
+````.sh
+#!/bin/bash
+# This program creates a frame around a phrase/word
 
 
+word=$1
+(( num = 50 - ${#word} / 2))
+
+
+for (( l=0 ; l<5; l++))
+do
+
+	if [ $l = 0 ] || [ $l = 4 ]; then
+		for (( i=0 ; i<100 ; i++ )) 
+		do
+
+			echo -n "*"
+		done
+		echo " "
+
+	elif [ $l = 1 ] || [ $l = 3 ]; then
+		for (( i=0; i<100 ; i++)) do
+			if [ $i == 0 ] || [ $i == 99 ]; then	
+				echo -n "*"
+			else 
+				echo -n " "
+			fi
+		done
+
+		echo " "
+
+	elif [ $l = 2 ]; then
+		for (( i=0; i<100-${#word}-1 ; i++)) do
+			if [ $i == 0 ] ; then	
+				echo -n "*"
+			else 
+				echo -n " "
+			fi
+			if [ $i == $num ]; then
+				echo -n $word
+			fi
+		done
+		echo "*"
+	fi
+
+done
+````
+This is probably the hardest program of the whole system. Because in order to make a frame around the word, I had to use many different for loops for different lines. The hardest part is to place the word/prase in the middle of the frame. It has to invole the number of letters inside the words, and I had to perform some calculations, but I was able to sort it out in the end. The main purpose of this program is that when you run the program and you want to tell the user something, you can use this program and write the prase in the frame so that it is more appealing to the user.
 Evaluation
 -----------
 ### Test 1:
