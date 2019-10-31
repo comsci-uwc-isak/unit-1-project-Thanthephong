@@ -41,6 +41,7 @@ These are measurable outcomes
 Design
 ---------
 ### Overall sketch of the system:
+![alt text](http://url/to/img.png)
 
 
 Development
