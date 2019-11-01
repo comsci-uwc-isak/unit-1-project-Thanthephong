@@ -96,6 +96,7 @@ fi
 bash frame.sh "File created successfully"
 ````
 The only difficulty I encountered was how to add lines to a text file without deleting the lines that are already in it, but I simply found the solution that we can use "echo >> " instead of "echo > " ( which will rewrite the whole file )
+![20191101_224904](20191101_224904.jpg)
 
 ### 3. Edit
 Steps:
@@ -177,7 +178,7 @@ if [ ! -f "$1.txt" ]; then
 	exit
 ````
 This command is used to check if a file exist in that directory. By adding the quotation mark "!", the if command means that if the file DOES NOT exist, then the command it will terminate the commands inside if.
-
+![20191101_224910](20191101_224910.jpg)
 
 ### 5. Summary
 Steps:
@@ -318,7 +319,7 @@ fi
 bash frame.sh "Files backed up successfully"
 ````
 For this program, at first I have a lot of trouble on how to make the user enter their own path, because somehow there are some problem with the cd command. So instead of using cd, I just put the path in the copy command and the problem is solved.
-
+![20191101_224859](20191101_224859.jpg)
 ### 9. Uninstall
 Steps:
 1) Move to Desktop
