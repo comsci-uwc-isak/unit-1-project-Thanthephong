@@ -85,29 +85,18 @@ Steps:
 4) Create a "License".txt file
 ````.sh
 #!/bin/bash
-# This program records the information of a chosen car by the user
-cd ~/Desktop/CarRentalApp/db
-if [ $# -ne 4 ]; then
-	echo "Wrong input"
-	exit
-elif [ ! -f "$1.txt" ]; then
-	echo "File not found!"
-	exit
+# This program creates a new car file for the user
+if  [ $# -ne 4 ]; then
+    echo "Wrong input"
+    exit
 else 
-echo "$2 $3 $4" >> $1.txt
-cd ../scripts
-bash frame.sh "text inserted"
+echo "$1 $2 $3 $4" >> ~/Desktop/CarRentalApp/db/Maincarfile.txt
+echo -n "" > ~/Desktop/CarRentalApp/db/$1.txt
 fi
+bash frame.sh "File created successfully"
 ````
-
 The only difficulty I encountered was how to add lines to a text file without deleting the lines that are already in it, but I simply found the solution that we can use "echo >> " instead of "echo > " ( which will rewrite the whole file )
 
-````.sh
-if [ ! -f "$1.txt" ]; then
-	echo "File not found!"
-	exit
-````
-This command is used to check if a file exist in that directory. By adding the quotation mark "!", the if command means that if the file DOES NOT exist, then the command it will terminate the commands inside if.
 ### 3. Edit
 Steps:
 1) Check if the user enter enough arguments
@@ -172,7 +161,6 @@ cd ../scripts
 bash frame.sh "text inserted"
 fi
 ````
-
 ````.sh
 echo "$2 $3 $4" >> $1.txt
 ````
@@ -183,6 +171,12 @@ if [ $# -ne 4 ]; then
 	exit
 ````
 This command check if the number of arguments the user entered is 4. "$#" is the number of arguments, if it is not equal to 4 than the if command will run, printing out "Wrong input" to the terminal and exit the program
+````.sh
+if [ ! -f "$1.txt" ]; then
+	echo "File not found!"
+	exit
+````
+This command is used to check if a file exist in that directory. By adding the quotation mark "!", the if command means that if the file DOES NOT exist, then the command it will terminate the commands inside if.
 
 
 ### 5. Summary
