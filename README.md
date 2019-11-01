@@ -347,6 +347,10 @@ else
 fi
 ````
 The program works very simply. The only thing that we have to use rm -r instead of rm. This is because you want to delete not only the folder itself but also everything that it contains, that is why we use -r.
+````.sh
+rm -r CarRentalApp
+```` 
+This command is basically removing the CarRental App folder and everything that is inside of it, by using the extra -r command
 
 ### 10. Frame
 Steps:
@@ -493,12 +497,14 @@ cd ../scripts
 bash install.sh
 
 
-if [ -d ~/Desktop/CarRentalApp/scripts ] && [ -d ~/Desktop/CarRentalApp/db ] && [ -d ~/Desktop/CarRentalApp/test ]; then
+if [ -d ~/Desktop/CarRentalApp/scripts ] && [ -d ~/Desktop/CarRentalApp/db ] ; then
     echo "The files exists : passed"
 else
     echo "The files does not exist : test failed"
 fi
 ````
+
+For this test, it is really simple. I basically run the install.sh program, and then after that checks if the two folders scripts and db is inside the folder CarRental App. If it exists, then the program will print out the file exists, and vice versa if there's not.
 
   **Test 3:** ( Test for delete ) 
 ````.sh
@@ -528,6 +534,7 @@ if [ ! -f ~/Desktop/CarRentalApp/db/HP950.txt ]; then
     echo "Passed"
 fi
 ````
+This is the test for the delete program. I run the create program for it to create a car, and then run the delete program. For this test, first, I tested to see if the line of the car still exist in the maincarfile. I use 2 loops to read the maincarfile.txt file, at first, I searched every line in that text file to see if the car's license plate is found at the beginning of the line: if it is not there, then it's a pass. Second test, very simple. I checked if the license.txt file is still exist in the database folder, it it doesn't, then it is a pass.
 
   
 Evaluation
