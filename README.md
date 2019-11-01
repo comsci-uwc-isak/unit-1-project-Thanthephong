@@ -536,33 +536,19 @@ Evaluation
 -----------
 ### Success criteria
 
-|  Success criteria listed in planning                                    |   MET?  |
-| ----------------------------------------------------------------------- | ------- |
-| A car can be created and stored in database				  |   Yes   |
-|									  |	    |
-| The installation is simple-> one step process				  |   Yes   |
-|									  |         |
-| A car infromation can be edited					  |   Yes   |
-|									  |         |
-| A car can be deleted from the database				  |   Yes   |
-|									  |	    |
-| A summary (total/avrage distance traveled) can be generated             |   Yes   |         
-| for particular car 							  |         |
-|									  |         |
-| Trips can be recorded and stored for an existing car 			  |   Yes   |
-| 									  |         |
-|									  |         |
-| Easy commands that allow to enter the detail of the trip distance (km)  |   Yes   |
-|									  |         |
-| A basic permanent storage system and backup				  |   Yes   |
-|									  |         |
-| A command to see total statistic					  |   Yes   |
-|									  |         |
-| User-skill independent						  |   Yes   |
-|									  |         |
-| A basic permanent storage system and backup				  |   Yes   |
+![Criteria](Criteria.png)
 
+### Improvements for future
 
+1. A better programming language, platform can be used. Although bash is very simple, especially for the developers, because it involes no graphics, only coding, the user might find it very hard to use. If someone that is not a computer science student, want to use the program, they would not know where to start installing the program, and how to use it. Of course, there are the man pages, but still, that does not fully explain how to run install.sh, how to run delete.sh, how to enter arguments. If we have more time, we could create an actual app that user can interact with. For example: the camera app that is on our phone, we know what to do because there are pictures and buttons, but for bash, we only see numbers and words.
+
+2. The functions of the programs can also be improved. For example, the summary program only show us the distance traveled of the car. Maybe we can make it so that it also tells the user how many times the car was used, and how long in total has it been used. 
+
+3. The maincarfile can be arranged better, maybe having frames around it. For example like Microsoft Excel, a lot of people use that for data presentation because it is easy to use, and the way the data is arranged looks a lot more organized and therefore the work-efficiency of the user can be increased. So be making frames around the data in the maincarfile.txt, the user will definitely feel more pleased looking at it
+
+4. The program can be complicated for the user because everytime you run a command ( create, delete, record, ... ), you have to run bash and then the name of that program. So maybe we can somehow put all of those program in only one program, it will be a lot easier for the user to work with.
+
+5. A program / command for broken cars can be made. Because it is a car rental shop, scratches and damages in cars cannot be avoided, and the lack of the program that records it can make it very hard for the owner to manage. Maybe create a file for each car called damages_plate.txt. In that way, if the car went through any problem, the owner can put that in the file with 2 arguments [ what damage ] [ what date ] . Also there should be a program that runs through all the damage text files to see what cars are damaged. So if the user want to know if anything happened to that car, the owner can get it fixed as soon as possible.
   
 
  
