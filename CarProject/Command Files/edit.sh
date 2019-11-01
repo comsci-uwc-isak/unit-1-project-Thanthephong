@@ -1,4 +1,4 @@
- bash#!/bin/bash
+#!/bin/bash
 #This program edit the information of an exiting car in the
 #maincarfile
 #user enters [license place] [model] [red] [pp]
@@ -18,6 +18,7 @@ cd ../db
 
 if [ ! -f "$license.txt" ]; then
   echo "File not found!"
+  exit
 fi
 
 #find the line with the given car plate and delete it

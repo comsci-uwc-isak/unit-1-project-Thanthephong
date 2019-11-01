@@ -10,9 +10,7 @@
     cd CarRentalApp
     mkdir db 
     mkdir scripts
-    mkdir test
-    cp -r ~/Desktop/Command/. ~/Desktop/CarRentalApp/scripts
-    cp -r ~/Desktop/test/. ~/Desktop/CarRentalApp/test
+    cp -r ~/Desktop/CarApp/scripts/. ~/Desktop/CarRentalApp/scripts
 
      
 
