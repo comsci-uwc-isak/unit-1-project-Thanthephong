@@ -21,7 +21,6 @@ fi
          for word in $line
          do
                ((s=s+word))
-               echo "one"
                 break
         done
       done < $1.txt

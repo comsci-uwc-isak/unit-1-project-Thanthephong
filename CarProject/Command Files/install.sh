@@ -4,12 +4,16 @@
 #minimal Car Rental app
 
     
+   
     cd ~/Desktop
     mkdir CarRentalApp
     cd CarRentalApp
     mkdir db 
     mkdir scripts
+    mkdir test
     cp -r ~/Desktop/Command/. ~/Desktop/CarRentalApp/scripts
+    cp -r ~/Desktop/test/. ~/Desktop/CarRentalApp/test
+
      
 
 

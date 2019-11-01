@@ -1,4 +1,4 @@
-#!/bin/bash
+ bash#!/bin/bash
 #This program edit the information of an exiting car in the
 #maincarfile
 #user enters [license place] [model] [red] [pp]
