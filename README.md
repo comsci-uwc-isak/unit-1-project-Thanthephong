@@ -66,14 +66,16 @@ The following script creates the app folder and inside it creates two more folde
     cd CarRentalApp
     mkdir db 
     mkdir scripts
-    mkdir test
-    cp -r ~/Desktop/Command/. ~/Desktop/CarRentalApp/scripts
-    cp -r ~/Desktop/test/. ~/Desktop/CarRentalApp/test
+    cp -r ~/Desktop/CarApp/scripts/. ~/Desktop/CarRentalApp/scripts
 #Create App folder
 
 echo "Structure created successfully"
 ````
-The folder is defaultly located in desktop for the user to have easy access to it
+The folder is defaultly located in desktop for the user to have easy access to it. The only long code I used in this program is 
+````.sh
+cp -r ~/Desktop/CarApp/scripts/. ~/Desktop/CarRentalApp/scripts
+```` 
+this is the copy commands that copy everything that inside a folder to another folder. By moving everything that it contains, we use "-r"
 
 ### 2. Create car
 Steps:
@@ -97,7 +99,15 @@ cd ../scripts
 bash frame.sh "text inserted"
 fi
 ````
+
 The only difficulty I encountered was how to add lines to a text file without deleting the lines that are already in it, but I simply found the solution that we can use "echo >> " instead of "echo > " ( which will rewrite the whole file )
+
+````.sh
+if [ ! -f "$1.txt" ]; then
+	echo "File not found!"
+	exit
+````
+This command is used to check if a file exist in that directory. By adding the quotation mark "!", the if command means that if the file DOES NOT exist, then the command it will terminate the commands inside if.
 ### 3. Edit
 Steps:
 1) Check if the user enter enough arguments
@@ -135,6 +145,10 @@ cd ../scripts
 bash frame.sh "Car edited successfully"
 ````
 In this program, there is a very hard command called sed -i. It looks very complicated but it is very helpful, it helps to locate the line with containing the word that you need to find. I finds this confusing at first because I don't know what the word in that command means, but then I did research only and finally know.
+````.sh
+#find the line with the given car plate and delete it
+sed -i '' "/^$license/d" maincarfile.txt
+````
 
 ### 4. Record
 Steps:
@@ -158,7 +172,18 @@ cd ../scripts
 bash frame.sh "text inserted"
 fi
 ````
+
+````.sh
+echo "$2 $3 $4" >> $1.txt
+````
 I encountered no problem writing this program. The only reminder is that to again use echo >>. This is because the user wants to enter multiple data to a car ( different trips for a car ), thats why instead of rewriting the whole file, we have to keep adding in new lines.
+````.sh
+if [ $# -ne 4 ]; then
+	echo "Wrong input"
+	exit
+````
+This command check if the number of arguments the user entered is 4. "$#" is the number of arguments, if it is not equal to 4 than the if command will run, printing out "Wrong input" to the terminal and exit the program
+
 
 ### 5. Summary
 Steps:
@@ -197,7 +222,19 @@ fi
     cd ../scripts
     bash frame.sh "Total age of $1: $s km"
 ````
-By creating this program, I truly understood more about how to read a text file. It is quite easy for me to find a way to only add the distance of each line and not date in, date out.
+By creating this program, I truly understood more about how to read a text file. It is quite easy for me to find a way to only add the distance of each line and not date in, date out. 
+````.sh
+# adding the kilometers
+  while read line
+      do
+         for word in $line
+         do
+               ((s=s+word))
+                break
+        done
+      done < $1.txt
+````
+This lines of command is to read a file and add all the kilometeres traveled of that car together. By using while read line , everytime the loop runs, it assigns everything that is written in that line into the $line string. The second loop runs ( for word in $line ) is to read all the words that are in the string, but as we only need the first word/number which is the kilometers traveled, we don't need the date in and date out, so we use break to end the loop to make it run only once. Also before the break, we add the value to s so that in the end it calculates the sum of all the first word in each line. At last, we print out the screen the total km traveled
 
 ### 6. Summarize all
 Steps
@@ -232,6 +269,15 @@ echo "Total: $s km"
 ````
 In this program, we have to use 4 loops looping at the same time. So if there is a huge amount of data, the computer might not be able to handle it very fast. We should remember to not put s=0 inside of any loop because that will reset the value of s to 0 when we are looping.
 
+````.sh
+while read LINE 
+do
+  for WORD in $LINE
+    do
+      echo "Distance traveled of $WORD: "
+````
+This program is very similar to the summary of one car program. But because we have to get the summary of all of the cars that the user entered in the maincarfile, we have to read the maincarfile in order to find all of the car's plate and so we can find all the "plate.txt" files.
+
 ### 7. Delete
 Steps:
 1) Check if the file exists
@@ -253,6 +299,12 @@ else echo "wrong argument"
 fi
 ````
 We have to use the sed command again to locate the line containing the word. I have researched this online as I don't know how to delete a line in bash, other than that, the program works just like the other programs.
+
+````.sh
+ rm "$1".txt
+    echo "`sed  /$1/d  Maincarfile.txt`" > Maincarfile.txt
+````
+If we want to delete a car, we have to delete both the plate.txt of that car and also the line with the car name inside the maincarfile.txt file. So at first we remove the file, and then we locate the line inside the maincarfile.txt file and delete the line with the car in it.
 
 ### 8. Backup
 Steps:
