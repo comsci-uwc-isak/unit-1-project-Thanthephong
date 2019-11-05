@@ -1,4 +1,10 @@
 ![CarRental](logo.png)
+```.py
+Marks=24
+Demo=4
+Total=(Marks+Demo)=28
+```
+**Graded on Nov 5**
 
 Car Rental Minimal App
 ===========================
@@ -18,10 +24,6 @@ Planning
 ### Defining the problem (Topic 1.1.1)
 Mr. A, an owner of very big car rental shop downtown has had some problems with data. He opened as a very small shop with only him and his wife working in the factory, but as there are more people knowing about the shop, it gained a significant amount of customers. His wife is taking care of manually keeping track of the customer car data, but as there is a huge amount of people, making very hard to do it manually
 
-
-
-
-
 ### Solution proposed
 In this project, we are trying to create a new system for a car rental shop in which they can manage the users' data more easily and sufficiently. I decided that choosing a bash program would be the best solution for Mrs.vx because of the complexity of the problem and also the simplicity of the program. They wanted to purchase a computer program collecting basic information about the distance driven for each car, and also other data. The want the program to be a simple and transparent based proram, that contains easy commands that allow to create a car, or record a trip; also it should include a command to see total statistics of the data. In that way, without having solid knowledge of computing, the owner can still use the program sufficiently. Lastly, there should be a backup system so if the user somehow lost the data, or the computer 's drive is accidentally wiped, we can still have it afterwards.
 
@@ -38,6 +40,18 @@ These are measurable outcomes
 1. A basic database system is implemented
 1. A basic backup functionality is available
 
+**Criterion A**
+
+|Level|Descriptor|
+|----|-----|
+|4|The client in the car rental office is identified and his situation is stated. The rationale for choosing the proposed product is partially explained and includes some appropriate criteria for evaluating the success of the product.|
+```.sh
+Rational
+* Good Job with the success criteria.
+* The definition of the problem, who is the client, and why he needs the application are a bit disconnected from the context for this unit. It looks like a template from another project. You can improve this.
+* In the proposed solution, it is not clear the tools you used and the justification for them. You can also be specific about this.
+```
+
 Design
 ---------
 ### Overall sketch of the system:
@@ -47,6 +61,15 @@ System diagram explanation: all the user need to do is installing the the progra
 ![test](test.jpg)
 This program shows the testing plan/steps of the program, do this when the program is complete to see if it is functioning thouroughly
 
+## Criterion B
+|**level**|**Description**|
+|-----|------------|
+|8|An outline test plan is included but partially complete. A system diagram and some flow diagrams for algorithms in the product are included. They provide a basic understanding of how the product was developed.|
+```.sh
+Rationale
+*Great job with the system diagrams. You can use the figure as a reference point and refeer to it with Fig. 1. For example: "As shown in Fig. 1, the computational system consists of ..." This is necessary to be concrete about the reason from including the picture.
+* Good job with the flow diagrams. Here you did not get all the full marks because you are missing the description for all 3 diagrams. Remember, an image without description is an unbiguous tool. Add a paragram explaining what YOU see in the image and the reason why you included. 
+```
 
 Development
 --------
@@ -531,6 +554,16 @@ fi
 ````
 This is the test for the delete program. I run the create program for it to create a car, and then run the delete program. For this test, first, I tested to see if the line of the car still exist in the maincarfile. I use 2 loops to read the maincarfile.txt file, at first, I searched every line in that text file to see if the car's license plate is found at the beginning of the line: if it is not there, then it's a pass. Second test, very simple. I checked if the license.txt file is still exist in the database folder, it it doesn't, then it is a pass.
 
+## Criterion C
+|**level**|**Description**|
+|-----|------------|
+|6|The proposed solution is characterized by the appropriate use of existing tools. The techniques are adequate for the task and their use is explained. All sources are identified.|
+```.sh
+Rationale
+* Neat work here Tom, 
+* You can get to the next level in this section by including references (MLA format) to the resources you researched online and by using the references in the body of the document. For example: As shown in [1], to read a file in bash you can use..."
+```
+
   
 Evaluation
 -----------
@@ -551,7 +584,15 @@ Evaluation
 5. A program / command for broken cars can be made. Because it is a car rental shop, scratches and damages in cars cannot be avoided, and the lack of the program that records it can make it very hard for the owner to manage. Maybe create a file for each car called damages_plate.txt. In that way, if the car went through any problem, the owner can put that in the file with 2 arguments [ what damage ] [ what date ] . Also there should be a program that runs through all the damage text files to see what cars are damaged. So if the user want to know if anything happened to that car, the owner can get it fixed as soon as possible.
   
 
- 
+ ## Criterion D
+|**level**|**Description**|
+|-----|------------|
+|6|The product is fully evaluated against the success criteria identified in criterion A. Recommendations for further improvement of the product are realistic.|
+```.sh
+Rationale
+* Neat work here Tom. The Improvements are realistic and necessary. 
+* The evidence for the achievement of the criteria works great in the table
+```
 
 
 
